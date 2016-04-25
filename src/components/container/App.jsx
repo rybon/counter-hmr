@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { currentCount } from 'selectors';
-import * as CounterActions from 'actions/CounterActions';
+import * as CounterActions from 'actions';
 import { Container } from 'components/container';
 import { Counter } from 'components/presentational';
 
@@ -13,7 +13,7 @@ function appSelector(appState) {
     };
   }
 
-class CounterApp extends Component {
+class App extends Component {
     getChildContext() {
         return {
             currentLocale: this.props.currentLocale
@@ -34,8 +34,8 @@ class CounterApp extends Component {
     }
 }
 
-CounterApp.childContextTypes = {
+App.childContextTypes = {
     currentLocale: React.PropTypes.string.isRequired
 };
 
-export default connect(appSelector)(CounterApp);
+export default connect(appSelector)(App);

@@ -1,12 +1,10 @@
 import _ from 'lodash';
 import Immutable from 'immutable';
 import { createStore } from 'redux';
-import counter from 'reducers/counter';
-import navigation from 'reducers/navigation';
+import { counter, navigation } from 'reducers';
 
 const reducers = {
-    counter: counter,
-    navigation: navigation
+    counter, navigation
 };
 
 function app(state = Immutable.Map(), action) {

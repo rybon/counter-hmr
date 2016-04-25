@@ -1,7 +1,7 @@
 import React from 'react';
 import { browserHistory as history } from 'react-router';
 
-const TestPage = ({ props }) => (
+const IndexPage = ({ props }) => (
     <div>
         It works!!!
         {' '}
@@ -9,4 +9,4 @@ const TestPage = ({ props }) => (
     </div>
 );
 
-export default TestPage;
+export default IndexPage;
