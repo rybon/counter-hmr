@@ -14,22 +14,21 @@ const history = syncHistoryWithStore(browserHistory, store, { selectLocationStat
 
 const rootElement = document.getElementById('root');
 
-render(
-    <AppContainer
-        component={Root}
-        props={{ store, history }}
-    />,
-    rootElement
-);
+function renderApp(RootComponent) {
+    render(
+        <AppContainer
+            component={RootComponent}
+            props={{ store, history }}
+        />,
+        rootElement
+    );
+}
+
+renderApp(Root);
 
 if (module.hot) {
-    module.hot.accept('./components/Root', () => {
-        render(
-            <AppContainer
-                component={require('./components/Root').default}
-                props={{ store, history }}
-            />,
-            rootElement
-        );
-    });
+    module.hot.accept(
+        './components/Root',
+        () => renderApp(require('./components/Root').default)
+    );
 }
