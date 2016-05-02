@@ -16,10 +16,9 @@ const rootElement = document.getElementById('root');
 
 function renderApp(RootComponent) {
     render(
-        <AppContainer
-            component={RootComponent}
-            props={{ store, history }}
-        />,
+        <AppContainer>
+            <RootComponent store={store} history={history} />
+        </AppContainer>,
         rootElement
     );
 }
